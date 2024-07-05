@@ -1,8 +1,11 @@
 from datetime import datetime
 
 def get_days_from_today(date):
-
-    date_string = datetime.strptime(date, "%Y-%m-%d")
+    try:
+        date_string = datetime.strptime(date, "%Y-%m-%d")
+    except ValueError:
+        print("Неправильний формат дати. Введіть дату у форматі 'РРРР-ММ-ДД'.")
+        return None
 
     current_date = datetime.now()
 
@@ -10,8 +13,11 @@ def get_days_from_today(date):
 
     return timedelta.days
 
-date = input("Введіть дату: РРРР-ММ-ДД: ")
+while True:
+    date = input("Введіть дату у форматі 'РРРР-ММ-ДД': ")
 
-days_difference = get_days_from_today(date) 
+    days_difference = get_days_from_today(date)
 
-print(f"До заданої дати: {(days_difference)}")
+    if days_difference is not None:
+        print(f"Різниця в днях від заданої дати {date} до сьогоднішньої: {days_difference} днів")
+        break  
