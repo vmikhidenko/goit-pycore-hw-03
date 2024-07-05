@@ -1,3 +1,1 @@
-# repo2
-# repo2
-# repo2
+goit-pycore-hw-03
