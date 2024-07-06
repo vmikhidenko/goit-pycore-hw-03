@@ -1,8 +1,7 @@
 import random
 
 def get_numbers_ticket(minimum, maximum, quantity):
-    if minimum < 1 or maximum > 1000 or quantity > (maximum - minimum + 1):
-        print("Введіть мінімальне число не менше 1, та максимальне число не більше 1000")
+    if not (1 <= minimum <= 1000 and 1 <= maximum <= 1000 and 1 <= quantity <= (maximum - minimum + 1)):
         return []
 
     unique_numbers = set()
@@ -13,11 +12,12 @@ def get_numbers_ticket(minimum, maximum, quantity):
     return sorted(unique_numbers)
 
 try:
-    minimum = int(input("Введіть мінімальне число: (>= 1): "))
-    maximum = int(input("Введіть максимальне число: (<= 1000): "))
+    minimum = int(input("Введіть мінімальне число від 1 до 1000: "))
+    maximum = int(input("Введіть максимальне число від 1 до 1000: "))
     quantity = int(input("Введіть кількість чисел до згенерування: "))
 
     random_numbers = get_numbers_ticket(minimum, maximum, quantity)
     print(f"Унікальні номери результату: {random_numbers}")
+
 except ValueError:
-    print("Введіть менше число.")
+    print("Неправильний формат введення числа.")
