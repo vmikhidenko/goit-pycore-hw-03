@@ -19,5 +19,5 @@ while True:
     days_difference = get_days_from_today(date)
 
     if days_difference is not None:
-        print(f"Різниця в днях від заданої дати {date} до сьогоднішньої: {days_difference} днів")
+        print(f"Різниця в днях від заданої дати {date} до сьогoднішньої: {days_difference} днів")
         break  
